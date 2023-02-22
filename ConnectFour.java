@@ -29,6 +29,7 @@ public class ConnectFour extends JFrame //ConnectFour is a JFrame, not a JPanel 
 {
 	private byte turn; //red is 1, black is 2
 	private byte[][] matrix; //blue is 0, red is 1, black is 2
+	private boolean ai = false;
 	private JButton[][] board;
 	private JLabel turnIndicator;
 	private JButton[] undoRedo = new JButton[2]; //first spot holds undo button, second holds redo button
@@ -431,6 +432,8 @@ public class ConnectFour extends JFrame //ConnectFour is a JFrame, not a JPanel 
 			//will have returned out of the method
 			correctTurnAndIndicator();
 
+			if(!ai)
+				return;
 			if(turn == 2) {
 				long t1 = System.nanoTime();
 				int[] scores = new int[7];
